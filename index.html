@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    
-    <script>
+	
+	<script>
         function appendToDisplay(value) {
             document.getElementById("display").value += value;
         }
@@ -26,7 +25,7 @@
             }
         }
     </script>
-    
+	
     <style>
         * {
             box-sizing: border-box;
@@ -41,11 +40,10 @@
             align-items: center;
             height: 100vh;
             background-color: #181818;
-            padding: 10px;
         }
 
         .calculator {
-            width: 100%;
+			width: 100%;
             max-width: 320px;
             padding: 20px;
             background-color: #222222;
@@ -71,7 +69,7 @@
 
         .buttons {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 4fr);
             gap: 10px;
         }
 
@@ -85,21 +83,36 @@
             cursor: pointer;
             transition: 0.2s ease;
             background-color: #28272c;
-            color: white;
 			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         button:hover {
             background-color: #1d1c20;
         }
-		
-		.backspace, .clear {
-			color: #2979ff;
-		}
 
-        .operator { color: #2979ff; }
-        .equal { background-color: #2979ff; grid-column: span 2; }
-        .equal:hover { background-color: #1c4793; }
+        .operator, .clear, .backspace {
+            background-color: #28272c;
+			color: #2979ff;
+        }
+		
+	.operator: hover, .clear:hover, .backspace:hover {
+            background-color: #1d1c20;
+        }
+
+        .equal {
+                background-color: #2979ff;
+                grid-column: span 2;
+		color: #dddce0;
+        }
+
+        .equal:hover {
+                background-color: #1c4793;
+        }
+		
+	.numbers {
+		color: #dddce0;
+	}
+		
     </style>
 </head>
 <body>
@@ -112,24 +125,25 @@
             <button onclick="appendToDisplay('*')" class="operator">×</button>
             <button onclick="backspace()" class="backspace">⌫</button>
             
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('-')" class="operator">−</button>
+            <button onclick="appendToDisplay('7')" class="numbers">7</button>
+            <button onclick="appendToDisplay('8')" class="numbers">8</button>
+            <button onclick="appendToDisplay('9')" class="numbers">9</button>
+            <button onclick="appendToDisplay('-')" class="operator" style = "">−</button>
             
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('4')" class="numbers">4</button>
+            <button onclick="appendToDisplay('5')" class="numbers">5</button>
+            <button onclick="appendToDisplay('6')" class="numbers">6</button>
             <button onclick="appendToDisplay('+')" class="operator">+</button>
             
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('%')" class="operator">%</button>
+            <button onclick="appendToDisplay('1')" class="numbers">1</button>
+            <button onclick="appendToDisplay('2')" class="numbers">2</button>
+            <button onclick="appendToDisplay('3')" class="numbers">3</button>
             
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculateResult()" class="equal">=</button>
+
+            <button onclick="appendToDisplay('%')" class="operator">%</button>
+            <button onclick="appendToDisplay('0')" class="numbers">0</button>
+            <button onclick="appendToDisplay('.')" class="numbers">.</button>
+			<button onclick="calculateResult()" class="equal">=</button>
         </div>
     </div>
 
